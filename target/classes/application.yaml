@@ -1,0 +1,9 @@
+#server:
+#  port: 9789
+#
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: https://securetoken.google.com/android-room-database-example
