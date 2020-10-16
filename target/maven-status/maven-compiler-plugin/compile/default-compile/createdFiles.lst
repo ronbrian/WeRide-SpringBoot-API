@@ -1,0 +1,5 @@
+com/ronbrian/demorestful/demo/UserService.class
+com/ronbrian/demorestful/demo/UserController.class
+com/ronbrian/demorestful/demo/DemorestfulApplication.class
+com/ronbrian/demorestful/demo/UserRepository.class
+com/ronbrian/demorestful/demo/entities/User.class
