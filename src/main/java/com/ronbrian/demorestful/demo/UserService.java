@@ -17,9 +17,7 @@ public class UserService {
 
 
     public Map<String, Object> save(Map<String, Object> request) {
-
-
-        if(null==request.get("name")){
+    if(null==request.get("name")){
             request.put("status","00");
             request.put("message","User Cannot Be Blank !");
             return request;
