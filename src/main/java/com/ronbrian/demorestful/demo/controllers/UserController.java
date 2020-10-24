@@ -1,6 +1,8 @@
-package com.ronbrian.demorestful.demo;
+package com.ronbrian.demorestful.demo.controllers;
 
 import com.ronbrian.demorestful.demo.entities.User;
+import com.ronbrian.demorestful.demo.repositories.UserRepository;
+import com.ronbrian.demorestful.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -57,11 +59,6 @@ public class UserController {
     }
 
 
-    // Deleting all Tasks
-    @DeleteMapping(value = "/users")
-    public void deleteUsers(){
-        userRepository.deleteAll();
-    }
 
     //Counting number of Tasks
     @GetMapping(value = "/users/count")

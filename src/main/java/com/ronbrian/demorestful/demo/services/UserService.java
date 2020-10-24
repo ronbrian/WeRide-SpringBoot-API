@@ -1,5 +1,6 @@
-package com.ronbrian.demorestful.demo;
+package com.ronbrian.demorestful.demo.services;
 
+import com.ronbrian.demorestful.demo.repositories.UserRepository;
 import com.ronbrian.demorestful.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +35,6 @@ public class UserService {
             String userId = (String) request.get("userId");
             String location = (String) request.get("location");
 
-
-
-
-
             // if phone and email are valid
             //request.put("status", "00"); //status success
             request.put("data", "00");
@@ -51,8 +48,6 @@ public class UserService {
             userRepository.save(user1);
 
             return request;
-
-
 
         }
 
@@ -78,7 +73,6 @@ public class UserService {
         map.put("data" ,list2);
         return map;
     }
-
 
     public Map<String, Object> retrieveUsers(long id){
         Map<String, Object> map =new HashMap<>();

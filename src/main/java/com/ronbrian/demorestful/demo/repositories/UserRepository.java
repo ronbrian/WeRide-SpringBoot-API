@@ -1,4 +1,4 @@
-package com.ronbrian.demorestful.demo;
+package com.ronbrian.demorestful.demo.repositories;
 
 import com.ronbrian.demorestful.demo.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
