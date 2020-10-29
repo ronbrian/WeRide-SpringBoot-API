@@ -1,5 +1,6 @@
     package com.ronbrian.demorestful.demo.controllers;
 
+    import com.ronbrian.demorestful.demo.entities.Passenger;
     import com.ronbrian.demorestful.demo.entities.User;
     import com.ronbrian.demorestful.demo.repositories.PassengerRepository;
     import com.ronbrian.demorestful.demo.repositories.UserRepository;
@@ -37,6 +38,13 @@
     }
 
 
+    //Updating User attributes by id -- passing id as path
+        //Before Deleting , you must get usewr details the save them as a json
+    @PutMapping("/api/passenger/update/{id}")
+    public ResponseEntity<Map<String, String>> updatePassenger(@PathVariable long id, @RequestBody Passenger passenger) {
+        return passengerService.updatePassenger(id, passenger);
+
+    }
 
 
     }

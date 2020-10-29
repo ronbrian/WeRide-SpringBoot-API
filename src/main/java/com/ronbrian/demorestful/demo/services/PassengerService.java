@@ -62,6 +62,15 @@ public class PassengerService {
         //}
     }
 
+    //updating a passenger
+
+
+
+
+
+
+
+
     //Retrieving all Passengers
     public Map<String, Object> getPassengers() {
         Map<String, Object> map =new HashMap<>();
@@ -82,5 +91,36 @@ public class PassengerService {
         map.put("data" ,list);
         return map;
     }
+
+
+
+    public ResponseEntity<Map<String, String>> updatePassenger(long id, Passenger passenger){
+
+        Map<String, String> resp = new HashMap<>();
+        Passenger passenger1 = passengerRepository.findById(id).orElse(null);
+
+        if (passenger1 == null){
+            resp.put("state", "danger");
+            resp.put("msg","id not found");
+            return ResponseEntity.ok(resp);
+        }
+        passenger1.setFname(passenger.getFname());
+        passenger1.setLname(passenger.getLname());
+        passenger1.setPassword(passenger.getPassword());
+        passenger1.setVerified(passenger.isVerified());
+        passenger1.setActive(passenger.isActive());
+        passenger1.setEmail(passenger.getEmail());
+
+        //return nameService.updateTask(id,name,email,phone);
+
+        passengerRepository.save(passenger1);
+        resp.put("state", "success");
+        resp.put("msg", "Passenger updated successfully");
+        return ResponseEntity.ok(resp);
+    }
+
+
+
+
 
 }

@@ -19,6 +19,7 @@ public class Driver implements Serializable {
     private String vehicleID;
     private int noOfTrips;
     private int usertype;
+    private boolean isActive;
     private boolean isVerified;
 
     public long getDriverId() {
@@ -99,5 +100,13 @@ public class Driver implements Serializable {
 
     public void setVerified(boolean verified) {
         isVerified = verified;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }
