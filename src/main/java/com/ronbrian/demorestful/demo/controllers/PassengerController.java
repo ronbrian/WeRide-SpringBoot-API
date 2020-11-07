@@ -43,8 +43,27 @@
     @PutMapping("/api/passenger/update/{id}")
     public ResponseEntity<Map<String, String>> updatePassenger(@PathVariable long id, @RequestBody Passenger passenger) {
         return passengerService.updatePassenger(id, passenger);
-
     }
+
+    //Disabling user record "Deleting" - Changing isActive
+    @PutMapping("/api/passenger/disable/{id}")
+    public void hidePassenger(@PathVariable long id) {
+       passengerService.disableUser(id);
+    }
+
+    //Enabling user record "Deleting" - Changing isActive
+    @PutMapping("/api/passenger/enable/{id}")
+    public void enablePassenger(@PathVariable long id) {
+        passengerService.enableUser(id);
+    }
+
+    //deleting name by id
+    @DeleteMapping(value = "/api/passenger/delete/{id}")
+    public void deleteUser(@PathVariable long id) {
+        passengerRepository.deleteById(id);
+    }
+
+
 
 
     }

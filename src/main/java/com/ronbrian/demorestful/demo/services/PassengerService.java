@@ -67,10 +67,6 @@ public class PassengerService {
 
 
 
-
-
-
-
     //Retrieving all Passengers
     public Map<String, Object> getPassengers() {
         Map<String, Object> map =new HashMap<>();
@@ -93,6 +89,17 @@ public class PassengerService {
     }
 
 
+    public void disableUser(long id){
+        Passenger passenger1 = passengerRepository.findById(id).orElse(null);
+        passenger1.setActive(false);
+        passengerRepository.save(passenger1);
+    }
+
+    public void enableUser(long id){
+        Passenger passenger1 = passengerRepository.findById(id).orElse(null);
+        passenger1.setActive(true);
+        passengerRepository.save(passenger1);
+    }
 
     public ResponseEntity<Map<String, String>> updatePassenger(long id, Passenger passenger){
 
