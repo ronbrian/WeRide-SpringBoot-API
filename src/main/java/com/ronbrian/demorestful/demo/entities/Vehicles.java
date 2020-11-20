@@ -10,7 +10,7 @@ public class Vehicles implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long vehicleId;
+    private long id;
     private String driverId;
     private String make;
     private String model;
@@ -21,11 +21,11 @@ public class Vehicles implements Serializable {
     private int engineSize;
 
     public long getVehicleId() {
-        return vehicleId;
+        return id;
     }
 
-    public void setVehicleId(long vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVehicleId(long id) {
+        this.id = id;
     }
 
     public String getDriverId() {

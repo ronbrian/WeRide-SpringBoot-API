@@ -10,7 +10,7 @@ public class Requests implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long requestId;
+    private long id;
     private int tripID;
     private int passengerID;
     private int driverID;
@@ -22,18 +22,18 @@ public class Requests implements Serializable {
     private double destinationLongitude;
     private int status;
     private int requestValidityTime;  //in Minutes
-    private String tripStatus;
-    private String tripDuration;
-    private String availableSeats;
-    private String price;
+    private int tripStatus;
+    private int tripDuration;
+    private int availableSeats;
+    private int price;
 
 
     public long getRequestId() {
-        return requestId;
+        return id;
     }
 
-    public void setRequestId(long requestId) {
-        this.requestId = requestId;
+    public void setRequestId(long id) {
+        this.id = id;
     }
 
     public int getTripID() {
@@ -124,35 +124,35 @@ public class Requests implements Serializable {
         this.requestValidityTime = requestValidityTime;
     }
 
-    public String getTripStatus() {
+    public int getTripStatus() {
         return tripStatus;
     }
 
-    public void setTripStatus(String tripStatus) {
+    public void setTripStatus(int tripStatus) {
         this.tripStatus = tripStatus;
     }
 
-    public String getTripDuration() {
+    public int getTripDuration() {
         return tripDuration;
     }
 
-    public void setTripDuration(String tripDuration) {
+    public void setTripDuration(int tripDuration) {
         this.tripDuration = tripDuration;
     }
 
-    public String getAvailableSeats() {
+    public int getAvailableSeats() {
         return availableSeats;
     }
 
-    public void setAvailableSeats(String availableSeats) {
+    public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

@@ -37,8 +37,14 @@
         return passengerService.getPassengers();
     }
 
+    //Retrieving passenger by ID
+     @GetMapping(value = "/api/passengers/{id}")
+    public Map<String, Object> retrieveUser(@PathVariable long id){
+        return passengerService.retrievePassenger(id);
+    }
 
-    //Updating User attributes by id -- passing id as path
+
+        //Updating User attributes by id -- passing id as path
         //Before Deleting , you must get usewr details the save them as a json
     @PutMapping("/api/passenger/update/{id}")
     public ResponseEntity<Map<String, String>> updatePassenger(@PathVariable long id, @RequestBody Passenger passenger) {

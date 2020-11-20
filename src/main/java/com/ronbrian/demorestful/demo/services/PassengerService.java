@@ -61,9 +61,26 @@ public class PassengerService {
             return request;
         //}
     }
+    //Retrieving passenger by ID
+    public Map<String, Object> retrievePassenger(long id){
+        Map<String, Object> map =new HashMap<>();
+        Optional<Passenger> name = passengerRepository.findById(id);
 
-    //updating a passenger
 
+        if (!name.isPresent()){
+
+            map.put("status","00");
+            map.put("message", "User with that ID does not exist ! ");
+
+        }else {
+            map.put("status", "01");
+            map.put("message", "success");
+
+            map.put("data", name);
+        }
+
+        return map;
+    }
 
 
 

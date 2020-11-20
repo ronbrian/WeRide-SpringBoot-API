@@ -10,7 +10,7 @@ public class Reviews implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long reviewId;
+    private long id;
     private long driverId;
     private long tripId;
     private long passengerId;
@@ -19,11 +19,11 @@ public class Reviews implements Serializable {
 
 
     public long getReviewId() {
-        return reviewId;
+        return id;
     }
 
-    public void setReviewId(long reviewId) {
-        this.reviewId = reviewId;
+    public void setReviewId(long id) {
+        this.id = id;
     }
 
     public long getDriverId() {

@@ -10,7 +10,7 @@ public class Trips implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long tripId;
+    private long id;
     private int vehicleID;
     private int driverID;
     private int requestID;
@@ -28,11 +28,11 @@ public class Trips implements Serializable {
 
 
     public long getTripId() {
-        return tripId;
+        return id;
     }
 
-    public void setTripId(long tripId) {
-        this.tripId = tripId;
+    public void setTripId(long id) {
+        this.id = id;
     }
 
     public int getVehicleID() {

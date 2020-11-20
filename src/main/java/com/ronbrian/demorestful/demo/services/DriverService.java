@@ -85,6 +85,69 @@ public class DriverService {
         map.put("data" ,list);
         return map;
     }
+
+
+    public Map<String, Object> retrieveDriver(long id){
+        Map<String, Object> map =new HashMap<>();
+        Optional<Driver> name = driverRepository.findById(id);
+
+
+        if (!name.isPresent()){
+
+            map.put("status","00");
+            map.put("message", "Driver with that ID does not exist ! ");
+
+        }else {
+            map.put("status", "01");
+            map.put("message", "success");
+
+            map.put("data", name);
+        }
+
+        return map;
+    }
+
+
+
+    public ResponseEntity<Map<String, String>> updateDriver(long id, Driver driver){
+
+        Map<String, String> resp = new HashMap<>();
+        Driver driver1 = driverRepository.findById(id).orElse(null);
+
+        if (driver1 == null){
+            resp.put("state", "danger");
+            resp.put("msg","id not found");
+            return ResponseEntity.ok(resp);
+        }
+        driver1.setFname(driver.getFname());
+        driver1.setLname(driver.getLname());
+        driver1.setEmail(driver.getEmail());
+        driver1.setPhone(driver.getPhone());
+        driver1.setPassword(driver.getPassword());
+        driver1.setVehicleID(driver.getVehicleID());
+        driver1.setNoOfTrips(driver.getNoOfTrips());
+        driver1.setUsertype(driver.getUsertype());
+        driver1.setActive(driver.isActive());
+        driver1.setEmail(driver.getEmail());
+        driver1.setVerified(driver.isVerified());
+
+        driverRepository.save(driver1);
+        resp.put("state", "success");
+        resp.put("msg", "Driver updated successfully");
+        return ResponseEntity.ok(resp);
+    }
+
+    public void disableDriver(long id){
+        Driver driver = driverRepository.findById(id).orElse(null);
+        driver.setActive(false);
+        driverRepository.save(driver);
+    }
+
+    public void enableDriver(long id){
+        Driver driver = driverRepository.findById(id).orElse(null);
+        driver.setActive(true);
+        driverRepository.save(driver);
+    }
     
     
     
