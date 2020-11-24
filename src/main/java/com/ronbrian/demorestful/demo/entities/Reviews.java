@@ -11,9 +11,10 @@ public class Reviews implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long driverId;
-    private long tripId;
-    private long passengerId;
+    private String reviewType; //P2D(Passenger to Driver) or D2P(Driver to Passenger)
+    private int driverId;
+    private int tripId;
+    private int passengerId;
     private String reviewComment;
     private int rating;  //out of 5 Stars
 
@@ -22,31 +23,31 @@ public class Reviews implements Serializable {
         return id;
     }
 
-    public void setReviewId(long id) {
+    public void setReviewId(int id) {
         this.id = id;
     }
 
-    public long getDriverId() {
+    public int getDriverId() {
         return driverId;
     }
 
-    public void setDriverId(long driverId) {
+    public void setDriverId(int driverId) {
         this.driverId = driverId;
     }
 
-    public long getTripId() {
+    public int getTripId() {
         return tripId;
     }
 
-    public void setTripId(long tripId) {
+    public void setTripId(int tripId) {
         this.tripId = tripId;
     }
 
-    public long getPassengerId() {
+    public int getPassengerId() {
         return passengerId;
     }
 
-    public void setPassengerId(long passengerId) {
+    public void setPassengerId(int passengerId) {
         this.passengerId = passengerId;
     }
 
@@ -60,6 +61,14 @@ public class Reviews implements Serializable {
 
     public int getRating() {
         return rating;
+    }
+
+    public String getReviewType() {
+        return reviewType;
+    }
+
+    public void setReviewType(String reviewType) {
+        this.reviewType = reviewType;
     }
 
     public void setRating(int rating) {

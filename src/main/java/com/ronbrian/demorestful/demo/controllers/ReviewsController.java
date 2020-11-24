@@ -5,6 +5,7 @@ import com.ronbrian.demorestful.demo.repositories.ReviewsRepository;
 import com.ronbrian.demorestful.demo.services.DriverService;
 import com.ronbrian.demorestful.demo.services.ReviewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,10 @@ public class ReviewsController {
     }
 
     //Get all Reviews
+    @GetMapping(value = "/api/reviews")
+    public Map<String, Object> getAllReviews() {
+        return reviewsService.getReviews();
+    }
 
 
     //Get all reviews about this driver -- Reviews for a driver written by a passenger -- containing his driverId
