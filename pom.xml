@@ -76,6 +76,7 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -84,10 +85,14 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>com.africastalking</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.4</version>
         </dependency>
+
+
 
     </dependencies>
 
@@ -114,7 +119,13 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>africastalking</id>
+            <name>AfricasTalking</name>
+            <url>http://dl.bintray.com/africastalking/java</url>
+        </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestones</id>

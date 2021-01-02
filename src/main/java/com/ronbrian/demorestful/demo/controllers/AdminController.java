@@ -29,7 +29,7 @@ public class AdminController {
         return adminService.save(request);
     }
 
-    //Retrieving all Drivers
+    //Retrieving all Admins
     @GetMapping(value = "/api/admins")
     public Map<String, Object> getAllAdmins() {
         return adminService.getAdmins();

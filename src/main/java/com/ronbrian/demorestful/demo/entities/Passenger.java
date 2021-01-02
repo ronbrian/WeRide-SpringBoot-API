@@ -101,4 +101,5 @@ public class Passenger implements Serializable {
     public void setActive(boolean active) {
         isActive = active;
     }
+
 }

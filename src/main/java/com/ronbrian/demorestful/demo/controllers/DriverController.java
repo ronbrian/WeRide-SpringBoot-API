@@ -51,6 +51,7 @@ public class DriverController {
 
     //    //Updating User attributes by id -- passing id as path
 //    //Before Deleting , you must get user details the save them as a json
+
     @PutMapping("/api/driver/update/{id}")
     public ResponseEntity<Map<String, String>> updateDriver(@PathVariable long id, @RequestBody Driver driver) {
         return driverService.updateDriver(id, driver);
