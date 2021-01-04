@@ -54,9 +54,12 @@
 
 
     @PostMapping(value = "/api/login")
-    public Map<String, Object> login(@Valid @RequestParam String email, @RequestParam String password, @RequestParam String usertype) throws IOException {
+//    public Map<String, Object> login(@Valid @RequestParam String email, @RequestParam String password, @RequestParam String usertype) throws IOException {
+    public Map<String, Object> login(@Valid @RequestBody Map <String, Object> request) throws IOException {
         Map<String, Object> map =new HashMap<>();
-
+        String email = (String) request.get("email");
+        String password = (String) request.get("password");
+        String usertype = (String) request.get("usertype");
 
         //Check for validation to ensure the values are not empty
         if (email.length() == 0 || password.length() == 0 || usertype.length() == 0){
@@ -180,5 +183,77 @@
         return map;
 
      }
+
+        //Creating a new User
+        //Validate to make sure all fields are present, email and phone are not already in the database, then call the services for saving them.
+        @PostMapping(value = "/api/register")
+        public Map<String, Object> registerUser(@Valid @RequestBody Map <String, Object> request) {
+            Map<String, Object> map =new HashMap<>();
+            int usertype = (int) request.get("usertype");
+
+            String fname = (String) request.get("fname");
+            String lname = (String) request.get("lname");
+            String email = (String) request.get("email");
+            String password = (String) request.get("password");
+            int phone = (int) request.get("phone");
+
+            if(fname.equals("")){
+                map.put("status","missing fname");
+                map.put("message","fname is missing");
+            }else if(lname.equals("")){
+                map.put("status","missing lname");
+                map.put("message","lname is missing");
+            }else if(email.equals("")){
+                map.put("status","missing email");
+                map.put("message","email is missing");
+            }else if(password.equals("")){
+                map.put("status","missing password");
+                map.put("message","password is missing");
+            }else if(phone<1){
+                map.put("status","missing phone");
+                map.put("message","phone is missing");
+            }else{
+                if (usertype==88){
+                    //Passenger
+                    map.put("message","Passenger is registering");
+
+                    //Check if email exists
+                        // Passenger passenger1 = passengerRepository.findByEmail(email);
+
+                    //Check if phone exists
+                        // Passenger passenger1 = passengerRepository.findByPhone(phone);
+
+
+                    //Save passenger if email & phone does not exist
+                    passengerService.save(request);
+
+                }else if (usertype==99){
+                    //Driver
+                    map.put("message","driver is registering");
+
+
+
+
+
+                }else if (usertype==101){
+                    //Admin
+                    map.put("message","admin is registering");
+
+
+
+                }else{
+                    map.put("status","usertype not specified");
+                }
+            }
+
+
+
+
+
+
+            //return passengerService.save(request);
+            return map;
+        }
+
 
     }

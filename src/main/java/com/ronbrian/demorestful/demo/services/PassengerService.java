@@ -36,7 +36,8 @@ public class PassengerService {
             String email = (String) request.get("email");
             int phone = (int) request.get("phone");
             String password = (String) request.get("password");
-            int noOfTrips = (int) request.get("noOfTrips");
+//            int noOfTrips = (int) request.get("noOfTrips");
+            int noOfTrips = 0;
             int usertype = (int) request.get("usertype");
             Boolean isVerified = false;
             Boolean isActive = true;
