@@ -57,6 +57,8 @@
 //    public Map<String, Object> login(@Valid @RequestParam String email, @RequestParam String password, @RequestParam String usertype) throws IOException {
     public Map<String, Object> login(@Valid @RequestBody Map <String, Object> request) throws IOException {
         Map<String, Object> map =new HashMap<>();
+        Map<String, Object> map2 =new HashMap<>();
+
         String email = (String) request.get("email");
         String password = (String) request.get("password");
         String usertype = (String) request.get("usertype");
@@ -79,10 +81,19 @@
                     if (passenger1.getPassword().equals(password)){
                         map.put("status","00");
                         map.put("message","Login Succesful");
+                        map.put("UserDetails", map2);
+                        // --User Details
+                        map2.put("fname", passenger1.getFname());
+                        map2.put("lname", passenger1.getLname());
+                        map2.put("email", passenger1.getEmail());
+                        map2.put("phone", passenger1.getPhone());
+                        map2.put("password", passenger1.getPassword());
+                        map2.put("noOfTrips", passenger1.getNoOfTrips());
+
 
                         //Login Succesful, proceed to issue a JWT token
 
-                        smsAPI smsapi = new smsAPI();
+                        //smsAPI smsapi = new smsAPI();
 
 
                     }else{
@@ -102,6 +113,19 @@
                     if (driver1.getPassword().equals(password)){
                         map.put("status","00");
                         map.put("message","Login Succesful");
+                        // -- User Details
+                        map.put("UserDetails", map2);
+                        map2.put("fname", driver1.getFname());
+                        map2.put("lname", driver1.getLname());
+                        map2.put("email", driver1.getEmail());
+                        map2.put("phone", driver1.getPhone());
+                        map2.put("password", driver1.getPassword());
+                        map2.put("noOfTrips", driver1.getNoOfTrips());
+                        map2.put("vehicleID", driver1.getVehicleID());
+
+
+
+
 
                         //Login Successful, proceed to issue a JWT token
 
@@ -173,17 +197,12 @@
 
         //Proceed to Log in
 
-
-
-
         //map.put("email",email);
         //map.put("password",password);
         //map.put("usertype",usertype);
 
         return map;
-
      }
-
         //Creating a new User
         //Validate to make sure all fields are present, email and phone are not already in the database, then call the services for saving them.
         @PostMapping(value = "/api/register")
@@ -231,15 +250,9 @@
                     //Driver
                     map.put("message","driver is registering");
 
-
-
-
-
                 }else if (usertype==101){
                     //Admin
                     map.put("message","admin is registering");
-
-
 
                 }else{
                     map.put("status","usertype not specified");
