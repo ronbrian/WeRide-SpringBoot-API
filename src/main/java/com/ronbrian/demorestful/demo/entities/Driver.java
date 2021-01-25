@@ -21,6 +21,9 @@ public class Driver implements Serializable {
     private int usertype;
     private boolean isActive;
     private boolean isVerified;
+    private double lat;
+    private double lng;
+    private long lastupdated;
 
     public long getDriverId() {
         return driverId;
@@ -100,6 +103,30 @@ public class Driver implements Serializable {
 
     public void setVerified(boolean verified) {
         isVerified = verified;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
+    public long getLastupdated() {
+        return lastupdated;
+    }
+
+    public void setLastupdated(long time) {
+        this.lastupdated = time;
     }
 
     public boolean isActive() {

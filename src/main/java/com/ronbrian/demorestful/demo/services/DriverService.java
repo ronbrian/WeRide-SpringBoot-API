@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
 import java.util.*;
 
 @RestController
@@ -130,6 +131,10 @@ public class DriverService {
         driver1.setActive(driver.isActive());
         driver1.setEmail(driver.getEmail());
         driver1.setVerified(driver.isVerified());
+        driver1.setLat(driver.getLat());
+        driver1.setLng(driver.getLng());
+        long unixTime = Instant.now().getEpochSecond();
+        driver1.setLastupdated(unixTime);
 
         driverRepository.save(driver1);
         resp.put("state", "success");

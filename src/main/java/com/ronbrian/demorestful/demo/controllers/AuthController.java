@@ -83,6 +83,7 @@
                         map.put("message","Login Succesful");
                         map.put("UserDetails", map2);
                         // --User Details
+
                         map2.put("fname", passenger1.getFname());
                         map2.put("lname", passenger1.getLname());
                         map2.put("email", passenger1.getEmail());
@@ -115,6 +116,7 @@
                         map.put("message","Login Succesful");
                         // -- User Details
                         map.put("UserDetails", map2);
+                        map2.put("driverId", driver1.getDriverId());
                         map2.put("fname", driver1.getFname());
                         map2.put("lname", driver1.getLname());
                         map2.put("email", driver1.getEmail());
