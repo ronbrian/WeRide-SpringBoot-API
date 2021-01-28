@@ -11,7 +11,7 @@ public class Requests implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
-    private int tripID;
+    private int tripID; //remove
     private int passengerID;
     private int driverID;
     private String origin;
@@ -25,7 +25,6 @@ public class Requests implements Serializable {
     private int tripStatus;
     private int tripDuration;
     private int availableSeats;
-    private int price;
 
 
     public long getRequestId() {
@@ -148,11 +147,4 @@ public class Requests implements Serializable {
         this.availableSeats = availableSeats;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 }

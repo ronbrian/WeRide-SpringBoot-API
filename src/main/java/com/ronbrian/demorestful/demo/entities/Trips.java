@@ -12,7 +12,7 @@ public class Trips implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     private int vehicleID;
-    private int driverID;
+    private String driverName;
     private int requestID;
     private String origin;
     private double originLatitude;
@@ -22,9 +22,8 @@ public class Trips implements Serializable {
     private double destinationLongitude;
     private int distance;
     private String tripStatus;
-    private String tripDuration; //in Minutes
-    private String passengers;
-    private String price;
+    private String time; //in Minutes
+    private String passenger;
 
 
     public long getTripId() {
@@ -43,12 +42,12 @@ public class Trips implements Serializable {
         this.vehicleID = vehicleID;
     }
 
-    public int getDriverID() {
-        return driverID;
+    public String getDriverName() {
+        return driverName;
     }
 
-    public void setDriverID(int driverID) {
-        this.driverID = driverID;
+    public void setDriverName(String driverID) {
+        this.driverName = driverID;
     }
 
     public int getRequestID() {
@@ -123,27 +122,20 @@ public class Trips implements Serializable {
         this.tripStatus = tripStatus;
     }
 
-    public String getTripDuration() {
-        return tripDuration;
+    public String getTime() {
+        return time;
     }
 
-    public void setTripDuration(String tripDuration) {
-        this.tripDuration = tripDuration;
+    public void setTime(String tripDuration) {
+        this.time = tripDuration;
     }
 
-    public String getPassengers() {
-        return passengers;
+    public String getPassenger() {
+        return passenger;
     }
 
-    public void setPassengers(String passengers) {
-        this.passengers = passengers;
+    public void setPassenger(String passengers) {
+        this.passenger = passengers;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 }

@@ -50,7 +50,7 @@ public class RequestService {
         quest.setTripStatus(tripStatus);
         quest.setTripDuration(tripDuration);
         quest.setAvailableSeats(availableSeats);
-        quest.setPrice(price);
+
 
         request.put("data", "00");
         requestRepository.save(quest);
@@ -125,7 +125,6 @@ public class RequestService {
         requests1.setTripStatus(quest.getTripStatus());
         requests1.setTripDuration(quest.getTripDuration());
         requests1.setAvailableSeats(quest.getAvailableSeats());
-        requests1.setPrice(quest.getPrice());
 
         requestRepository.save(quest);
         resp.put("state", "success");

@@ -1,0 +1,7 @@
+{
+    "aps": {
+        "alert": "A Passenger has requested for a lift, Go back to the app to see the request.",
+        "sound": "default",
+        "badge": 1
+    }
+}

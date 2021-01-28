@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Map;
 
 
@@ -36,9 +37,19 @@ public class DriverController {
 
     //Retrieving all Drivers
     @GetMapping(value = "/api/drivers")
-    public Map<String, Object> getAllDrivers() {
+    public Map<String, Object> getNearbyDrivers() {
         return driverService.getDrivers();
     }
+
+
+
+    //Retrieving nearby Drivers
+    @GetMapping(value = "/api/driversnearby")
+    public Map<String, Object> getAllDrivers(@RequestParam double lat, @RequestParam double lng ) throws IOException {
+        return driverService.getDriversNearby(lat, lng);
+    }
+
+
 
 
     //Retrieving passenger by ID

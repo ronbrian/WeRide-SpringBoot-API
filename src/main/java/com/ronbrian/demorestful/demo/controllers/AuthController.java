@@ -84,6 +84,7 @@
                         map.put("UserDetails", map2);
                         // --User Details
 
+                        map2.put("id", passenger1.getPassengerId());
                         map2.put("fname", passenger1.getFname());
                         map2.put("lname", passenger1.getLname());
                         map2.put("email", passenger1.getEmail());
@@ -116,6 +117,7 @@
                         map.put("message","Login Succesful");
                         // -- User Details
                         map.put("UserDetails", map2);
+                        map2.put("id", driver1.getDriverId());
                         map2.put("driverId", driver1.getDriverId());
                         map2.put("fname", driver1.getFname());
                         map2.put("lname", driver1.getLname());
@@ -216,7 +218,7 @@
             String lname = (String) request.get("lname");
             String email = (String) request.get("email");
             String password = (String) request.get("password");
-            int phone = (int) request.get("phone");
+//            String phone = (int) request.get("phone");
 
             if(fname.equals("")){
                 map.put("status","missing fname");
@@ -230,9 +232,6 @@
             }else if(password.equals("")){
                 map.put("status","missing password");
                 map.put("message","password is missing");
-            }else if(phone<1){
-                map.put("status","missing phone");
-                map.put("message","phone is missing");
             }else{
                 if (usertype==88){
                     //Passenger
@@ -251,6 +250,7 @@
                 }else if (usertype==99){
                     //Driver
                     map.put("message","driver is registering");
+                    driverService.save(request);
 
                 }else if (usertype==101){
                     //Admin
